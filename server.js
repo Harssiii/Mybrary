@@ -4,7 +4,6 @@ if(process.env.NODE_ENV !== 'production') {
 const express = require ('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
-const uri = process.env.MONGODB_URI;
 
 const indexRouter = require('./routes/index')
 
@@ -15,7 +14,7 @@ app.use(expressLayouts)
 app.use(express.static('public'))
 
 const mongoose = require('mongoose')
-mongoose.connect(process.env.DATABASE_URI, 
+mongoose.connect('mongodb+srv://usman:usman123@cluster0.g5bys.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
     {useUnifiedTopology: true, useNewUrlParser: true})
 
 const db=mongoose.connection
